@@ -1,0 +1,96 @@
+Introduction
+The primary objective of this project was to design and implement a technical analysis toolkit for visualizing and predicting weather data.
+The dataset provided contains hourly temperature data for various European countries from 1980 to 2019. 
+By utilizing this dataset, the project aimed to compute meaningful candlestick data, generate text-based plots, filter and manipulate the data, 
+and predict future temperature trends. The toolkitleverages object-oriented programming principles to ensure maintainability, scalability, and modularity. 
+Each task was implemented with a focus on clarity, efficiency, and extensibility, reflecting the high standards expected.
+The key tasks addressed in this report include the computation of candlestick data, text-based plotting,
+data filtering, and the prediction of future temperature trends based on historical data.
+
+Task 1: Compute Candlestick Data
+In Task 1, the goal was to compute candlestick data based on hourly temperature readings
+over the years 1980-2019 for various European countries.
+
+• Candlestick Class Design: A Candlestick class was designed to encapsulate the
+essential properties required for this analysis, such as Open, Close, High, and Low
+values. The Candlestick class constructor initializes these values along with the
+timeframe (year) of the candlestick .
+
+• Data Grouping and Calculation: The temperature data was grouped by year using
+a helper function groupByYear() within the TempBook class. The TempCSVReader
+class was responsible for reading the CSV file and converting the raw temperature
+data into TempBookEntry objects . Each entry contained the date, and
+temperatures for open, high, low, and close.
+
+• Calculating Yearly Candlestick Data: For each year, the TempBook class
+computed the open, close, high, and low values. The open was calculated by
+averaging values from the previous year or, for the first year, based on the available
+data. The close was the average of the temperatures for the year, while high and low
+were determined by the highest and lowest recorded temperatures during that year
+
+• Handling the First Year (1980): The open value for the first year was interpolated as
+the median of the year’s high and low temperatures, since there was no prior year
+for comparison. Using median to find 1980 Open as it was NaN at first.
+
+Task 2: Create a Text-Based Plot of the Candlestick Data
+In Task 2, the goal was to develop a text-based plot to visualize the candlestick data.
+
+• Plotting the Data: A text-based plot was created using ASCII characters. For each
+selected year, vertical lines (|) represent the High and Low temperatures, while
+horizontal lines (+ and -) represent the Open and Close values. The plot was scaled
+vertically to fit within a fixed number of rows (e.g., 10 rows for the height of the plot),
+ensuring that the data could be effectively displayed without graphical tools.
+
+• User Interaction: Users can select up to 5 years to visualize, and the toolkit
+dynamically generates these plots based on the filtered data. This provides a simple
+yet effective representation of temperature trends over time.
+
+Task 3: Filter Data and Plotting Using Text
+Task 3 required adding functionality to filter the temperature data based on specific criteria
+(e.g., date range, country, or temperature data range).
+
+• Filtering Mechanism: The TempBook class was extended with a filtering function
+that allows users to filter the data by year. Users can input a specific year or a range
+of years, and the program will filter out all irrelevant entries before proceeding with
+the plot generation.
+
+• Text-Based Plot for Filtered Data: After filtering, the same text-based plot was
+generated for the specified years or countries, allowing the user to examine
+temperature trends within a specific subset of the data. This functionality enhances
+the toolkit’s utility by enabling users to focus on smaller, relevant portions of the
+dataset.
+
+Task 4: Predicting Data and Plotting
+In Task 4, I incorporated a prediction mechanism to forecast future temperature data.
+
+• Prediction Mechanism: The prediction was based on the Close value of the most
+recent year in the dataset. Random fluctuations were added to simulate potential
+temperature variations for the following year. The High and Low values were
+predicted using random variations, while the Close value was computed as the
+average of the predicted High and Low values.
+
+• Random Fluctuations: Random variations were generated within a specified range
+(-2.999 to 2.999) using std::rand(), which provided variability in the predicted data.
+While this prediction model was simplistic, it demonstrated the potential for more
+complex forecasting models to be integrated in the future.
+
+• Display of Predicted Data: The predicted candlestick data for the next year was
+displayed in a format consistent with the actual candlestick data, providing users
+with a clear comparison between historical and predicted data.
+
+Conclusion
+The successful completion of this project demonstrates the practical application of
+object-oriented programming principles to the analysis and prediction of weather data. By
+tackling tasks such as computing candlestick data, generating text-based plots, filtering
+data, and predicting future trends, the project provides a versatile toolkit for analyzing and
+understanding temperature fluctuations.
+
+The design choices, including the use of the Candlestick, TempBook, and TempBookEntry
+classes, ensure that the code is modular, easy to maintain, and scalable for future
+enhancements. The implementation of each task was grounded in solid programming
+practices, with particular attention paid to clarity, efficiency, and user experience.
+Furthermore, the prediction model, although basic, offers a foundation that can be
+expanded with more sophisticated forecasting techniques.
+Overall, this toolkit serves as an invaluable tool for exploring temperature data and
+forecasting future trends, and its flexible design ensures that it can adapt to future needs
+and requirements.
