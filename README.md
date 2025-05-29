@@ -2,6 +2,8 @@
 
 This project implements a technical analysis toolkit for processing and predicting weather data using object-oriented design. It operates on hourly temperature data from various European countries (1980–2019) and provides features for candlestick computation, ASCII plotting, filtering, and trend prediction.
 
+Data of the CSV can be obtained from https://data.open-power-system-data.org/weather_data/2020-09-16
+
 🔧 Features
 
 🕯️ Candlestick Data Computation
